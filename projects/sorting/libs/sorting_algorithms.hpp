@@ -8,6 +8,8 @@
 
 #include <vector>
 
+#include "../../../utils.hpp"
+
 
 void insertion_sort(std::vector<int> &arr, bool ascending=true) {
 
@@ -152,7 +154,7 @@ void radix_sort(std::vector<int> &arr, bool ascending=true) {
 
   // Get the max number in the vector to sort
   // The max number will give the amount of iterations needed
-  int max_num = get_max(arr);
+  int max_num = RUTILS::get_max(arr);
 
   // using multiplication and division we can tell which digit we are in]
   // This is needed to count sort for every digit in the vector

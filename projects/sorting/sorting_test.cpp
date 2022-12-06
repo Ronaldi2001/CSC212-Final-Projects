@@ -11,7 +11,7 @@
 #include <vector>
 
 #include "../../utils.hpp"
-#include "sorting_algorithms.hpp"
+#include "libs/sorting_algorithms.hpp"
 
 
 void test_sorts(std::vector<int> &orig, const std::string &name) {
@@ -24,74 +24,74 @@ void test_sorts(std::vector<int> &orig, const std::string &name) {
   std::cout << "\nSorting " << name << " numbers with length " << orig.size() << "\n";
 
   // Header
-  print("Name", name_space);
-  print("Asc. (µs)", time_space);
-  println("Dec. (µs)", time_space);
-  println("", ((time_space*2)+name_space), '-');
+  RUTILS::print("Name", name_space);
+  RUTILS::print("Asc. (µs)", time_space);
+  RUTILS::println("Dec. (µs)", time_space);
+  RUTILS::println("", ((time_space*2)+name_space), '-');
 
-  print("Insertion", name_space);
+  RUTILS::print("Insertion", name_space);
 
   // Test insertion asc.
   arr = orig;
   time = clock();
   insertion_sort(arr);
   time = clock() - time;
-  print(time, time_space);
+  RUTILS::print(time, time_space);
 
   // Test insertion dec.
   arr = orig;
   time = clock();
   insertion_sort(arr, false);
   time = clock() - time;
-  println(time, time_space);
+  RUTILS::println(time, time_space);
 
-  print("Merge", name_space);
+  RUTILS::print("Merge", name_space);
 
   // Test merge asc.
   arr = orig;
   time = clock();
   merge_sort(arr);
   time = clock() - time;
-  print(time, time_space);
+  RUTILS::print(time, time_space);
 
   // Test merge dec.
   arr = orig;
   time = clock();
   merge_sort(arr, false);
   time = clock() - time;
-  println(time, time_space);
+  RUTILS::println(time, time_space);
 
-  print("Quick", name_space);
+  RUTILS::print("Quick", name_space);
 
   // Test quick asc.
   arr = orig;
   time = clock();
   quick_sort(arr, 0, arr.size()-1);
   time = clock() - time;
-  print(time, time_space);
+  RUTILS::print(time, time_space);
 
   // Test quick dec.
   arr = orig;
   time = clock();
   quick_sort(arr, 0, arr.size()-1, false);
   time = clock() - time;
-  println(time, time_space);
+  RUTILS::println(time, time_space);
 
-  print("Radix", name_space);
+  RUTILS::print("Radix", name_space);
 
   // Test radix asc.
   arr = orig;
   time = clock();
   radix_sort(arr);
   time = clock() - time;
-  print(time, time_space);
+  RUTILS::print(time, time_space);
 
   // Test radix dec.
   arr = orig;
   time = clock();
   radix_sort(arr, false);
   time = clock() - time;
-  println(time, time_space);
+  RUTILS::println(time, time_space);
 
   return;
 }
